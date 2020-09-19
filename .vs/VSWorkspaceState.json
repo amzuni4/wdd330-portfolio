@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\js",
+    "\\style",
+    "\\week1"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\style\\main.css",
   "PreviewInSolutionExplorer": false
 }
