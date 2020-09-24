@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 02</title>
+    <script>
+        //2.1 looping a triangle
+        for (let line = "#"; line.length < 8; line += "#")
+            console.log(line);
+
+        //2.2 FizzBuzz
+        for (let n = 1; n <= 100; n++) {
+        let output = "";
+        if (n % 3 == 0) output += "Fizz";
+         if (n % 5 == 0) output += "Buzz";
+            console.log(output || n)
+        }
+
+        //2.3 Chessboard
+        let size = 8;
+        let board = "";
+
+        for (let y = 0; y < size; y++) {
+         for (let x = 0; x < size; x++) {
+           if ((x + y) % 2 == 0) {
+               board += " ";
+               } else {
+               board += "#";
+             }
+         }
+            board += "\n"
+        }
+        console.log(board);
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Eloquent Javascript: Chapter 2</h1>
+        <p>Check out the backend source to view codes</p>
+    </div>
+    <div class="topnav">
+        <ul>
+            <li>
+                <a href="../week2/notes.html">Notes</a>
+            </li>
+            <li>
+                <a href="code.html">Codes</a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="footer">
+
+        <footer>
+            <ul>
+                <li>
+                    <a href="../index.html">Portfolio Home</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>

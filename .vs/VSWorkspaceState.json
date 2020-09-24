@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\js",
     "\\week1",
-    "\\week2"
+    "\\week2",
+    "\\week2\\SitePoint",
+    "\\week2\\SitePoint\\chapter2"
   ],
   "SelectedNode": "\\week2\\code.html",
   "PreviewInSolutionExplorer": false
