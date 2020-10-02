@@ -2,15 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\week2",
-    "\\week2\\eloquentJavascript",
-    "\\week2\\eloquentJavascript\\chapter2",
-    "\\week2\\eloquentJavascript\\chapter3",
     "\\week2\\eloquentJavascript\\chapter4",
-    "\\week2\\SitePoint",
     "\\week2\\SitePoint\\chapter2",
     "\\week2\\SitePoint\\chapter3",
-    "\\week2\\SitePoint\\chapter4"
+    "\\week2\\SitePoint\\chapter4",
+    "\\week3",
+    "\\week3\\Sitepoint\\chapter5",
+    "\\week3\\Sitepoint\\chapter6",
+    "\\week3\\Sitepoint\\chapter7"
   ],
-  "SelectedNode": "\\week2\\notes.html",
   "PreviewInSolutionExplorer": false
 }
