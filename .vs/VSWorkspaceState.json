@@ -1,11 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\week2",
-    "\\week2\\SitePoint",
-    "\\week3",
-    "\\week3\\Sitepoint\\chapter6"
+    "\\week3\\Sitepoint",
+    "\\week4",
+    "\\week4\\PlayingGround\\hero",
+    "\\week4\\SitePoint",
+    "\\week4\\SitePoint\\chapter12",
+    "\\week4\\SitePoint\\chapter8",
+    "\\week5\\CodeSandbox"
   ],
-  "SelectedNode": "\\week4",
+  "SelectedNode": "\\week4\\index.html",
   "PreviewInSolutionExplorer": false
 }

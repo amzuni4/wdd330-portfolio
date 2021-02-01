@@ -1,10 +1,11 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang='en'>
 <head>
     <meta charset='utf-8'>
     <meta name='description' content='A JavaScript Quiz Game'>
     <title>Quiz Ninja</title>
     <link rel='stylesheet' href='styles.css'>
+    
 </head>
 <body>
     <section class='dojo'>
@@ -15,7 +16,10 @@
                 <div id='score'>Score: <strong>0</strong></div>
             </header>
             <div id='question'></div>
-            <div id='response'></div>
+            <form id='response'>
+                <input name='answer' type='text'>
+                <button type='submit'>Submit Answer</button>
+            </form>
             <div id='result'></div>
             <div id='info'></div>
             <button id='start'>Click to Start</button>
