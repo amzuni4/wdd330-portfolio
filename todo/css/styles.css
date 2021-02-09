@@ -1,0 +1,54 @@
+	h1{
+		text-align: center;
+	}
+
+	.container, .footer{
+		max-width: 400px;
+		margin: auto;
+		font-size: 14px;
+		font-family: sans-serif;
+	}
+
+	.todo{
+		display: flex;
+		align-items: center;
+		width: 100%;
+		border: 1px solid black;
+		padding: 10px;
+		box-sizing: border;
+
+	}
+
+	.todo button{
+		width: 25px;
+		height: 25px;
+		border: 1px solid grey;
+		border-radius: 2px;
+
+	}
+
+	.todo-delete-btn{
+		background-color: red;
+		color:white;
+	}
+
+	.todo-content{
+		padding: 10px 20px;
+		width: calc(100%-50px);
+	}
+	.todo-filters{
+		padding-top: 20px;
+	}
+
+.completed{
+	color:green;
+}
+
+
+	@media (max-width: 500px){
+		.add-todo-wrapper{
+			position: absolute;
+			bottom: 10px;
+		}
+	}
+
