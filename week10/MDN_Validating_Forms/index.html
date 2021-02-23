@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes</title>
+
+    <style>
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Week  10: Reading 1: MDN: Validating forms </h1>
+    </div>
+    <div>
+        <ul>
+
+            <li>
+                <a href="../notes.html">Notes</a>
+            </li>
+            <li>
+                <a href="../code.html">Codes</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h3>The following web pages are taken from <a href="https://developer.mozilla.org/en-US/"> MDN Web Docs</a></h3>
+        <ul>
+            <li><a href="../week10/MDN_Validating_Forms/index.html">View Notes from MDN: Validating forms </a></li>
+            <li><a href="../week10/MDN_Using_Fetch/index.html">View Notes from MDN: Using Fetch </a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>What is Form Validation?</h3>
+        <p>What happens when the browser and/or web server will check to see the data is the form is correct</p>
+        <p>
+            <h2>Vocabulary</h2>
+            <li>Client-side Validaation:Validation done in the browser </li>
+            <li>Server-side Validaation:validation done on the server </li>
+
+
+        </p>
+        
+    </div>
+
+<div>
+    <h2>Three reasons for validating forms</h2>
+    <ol>
+    <li>We want to get the right data, in the right format.</li>
+    <li>We want to protect our users' data.</li>
+    <li>We want to protect ourselves.</li>
+    </ol>
+
+
+    <div>
+        <h1>Never trust data passed to your server from the client. Even if your form is validating correctly and preventing malformed input on the client-side, a malicious user can still alter the network request.</h1>
+
+    </div>
+</div>
+  <div>
+        <h3>Different types of client-side validation</h3>
+        <p>There are two different types of client-side validation that you'll encounter on the web</p>
+        <p>
+            
+            <li>Built-in form validation using HTML</li>
+            <li>JavaScript validation is coded using JavaScript. This validation is completely customizable, but you need to create it all (or use a library). </li>
+
+
+        </p>
+        
+    </div>
+
+     <div>
+        <h3>Using built-in form validation</h3>
+        <p>One of the most significant features of HTML5 form controls is the ability to validate most user data without relying on JavaScript. This is done by using validation attributes on form elements. </p>
+        <p>
+            <h2>Vocabulary</h2>
+            <li>required:Specifies whether a form field needs to be filled in before the form can be submitted.</li>
+            <li>minlength and maxlength: Specifies the minimum and maximum length of textual data (strings) </li>
+            <li>type: Specifies whether the data needs to be a number, an email address, or some other specific preset type.</li>
+            <li>pattern: Specifies a regular expression that defines a pattern the entered data needs to follow </li>
+
+
+        </p>
+        
+    </div>
+
+
+         <div>
+        <h2>Validating forms using JavaScript</h2>
+        <p>You must use JavaScript if you want to take control over the look and feel of native error messages or to deal with legacy browsers that do not support HTML's built-in form validation. In this section we will look at the different ways to do this</p>
+        <p>
+            <h2>The Constraint Validation API</h2>
+
+    <p>HTMLButtonElement (represents a <button>button</button>element) <br><br>
+HTMLInputElement (represents an <input> input element)<br><br>
+HTMLOutputElement (represents an <output > output element)<br><br>
+HTMLSelectElement (represents a <select> select</select> element)<br><br>
+HTMLTextAreaElement (represents a <textarea> textarea</textarea>  element)<br><br>
+     HTMLFieldSetElement (represents a <fieldset>fieldset</fieldset>  element)<br><br>
+
+</p>
+
+<h2>The Constraint validation API makes the following properties available on the above elements.</h2>
+
+            <li>validationMessage: Returns a localized message describing the validation constraints that the control doesn't satisfy (if any). If the control is not a candidate for constraint validation (willValidate is false) or the element's value satisfies its constraints (is valid), this will return an empty string.</li>
+            <li>validity:Returns a ValidityState object that contains several properties describing the validity state of the element. You can find full details of all the available properties in the ValidityState reference page; below is listed a few of the more common ones: </li>
+            <li>patternMismatch: Returns true if the value does not match the specified pattern, and false if it does match. If true, the element matches the :invalid CSS pseudo-class.</li>
+            <li>tooLong: Returns true if the value is longer than the maximum length specified by the maxlength attribute, or false if it is shorter than or equal to the maximum. If true, the element matches the :invalid CSS pseudo-class.</li>
+            <li>tooShort: Returns true if the value is shorter than the minimum length specified by the minlength attribute, or false if it is greater than or equal to the minimum. If true, the element matches the :invalid CSS pseudo-class.</li>
+            <li>rangeOverflow: Returns true if the value is greater than the maximum specified by the max attribute, or false if it is less than or equal to the maximum. If true, the element matches the :invalid and :out-of-range CSS pseudo-classes.</li>
+            <li>rangeUnderflow: Returns true if the value is less than the minimum specified by the min attribute, or false if it is greater than or equal to the minimum. If true, the element matches the :invalid and :out-of-range CSS pseudo-classes.</li>
+            <li>typeMismatch: Returns true if the value is not in the required syntax (when type is email or url), or false if the syntax is correct. If true, the element matches the :invalid CSS pseudo-class.</li>
+            <li>valid: Returns true if the element meets all its validation constraints, and is therefore considered to be valid, or false if it fails any constraint. If true, the element matches the :valid CSS pseudo-class; the :invalid CSS pseudo-class otherwise.</li>
+            <li>valueMissing: Returns true if the element has a required attribute, but no value, or false otherwise. If true, the element matches the :invalid CSS pseudo-class.</li>
+            <li>willValidate: Returns true if the element will be validated when the form is submitted; false otherwise.</li>
+
+            <h2>The Constraint Validation API also makes the following methods available on the above elements.</h2>
+            <li>checkValidity(): Returns true if the element's value has no validity problems; false otherwise. If the element is invalid, this method also fires an invalid event on the element.</li>
+            <li>setCustomValidity(message): Adds a custom error message to the element; if you set a custom error message, the element is considered to be invalid, and the specified error is displayed. This lets you use JavaScript code to establish a validation failure other than those offered by the standard HTML5 validation constraints. The message is shown to the user when reporting the problem.</li>
+            <li></li>
+        </p>
+        
+    </div>
+<div>
+        <h2>Validating forms without a built-in API</h2>
+        <p>In some cases, such as legacy browser support or custom controls, you won't be able to or won't want to use the Constraint Validation API.You're still able to use JavaScript to validate your form, but you'll just have to write your own.</p>
+        <p>To validate a form, ask yourself a few questions:</p>
+                    <h2>What kind of validation should I perform?</h2>
+            <p>You need to determine how to validate your data: string operations, type conversion, regular expressions, and so on. It's up to you.</p>
+            <h2>What should I do if the form doesn't validate?</h2>
+            <p>This is clearly a UI matter. You have to decide how the form will behave. Does the form send the data anyway? Should you highlight the fields that are in error? Should you display error messages?</p>
+            <p>Use trial and error and online resources until you find a solution</p>
+        
+        </div>   
+
+        <div>
+
+<footer>
+    
+    <br>
+    <br>
+    <li>Return to Notes Main Page: <a href="../notes.html">Click Here</a></li>
+    <li>
+                Return to Week 10 Home Page:<a href="week10/index.html">Portfolio Home</a>
+    </li>
+</footer>
+
+</div>
+</body>
+</html>

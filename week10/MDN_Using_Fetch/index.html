@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes</title>
+
+    <style>
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Week  10: My Notes</h1>
+    </div>
+    <div>
+        <ul>
+
+            <li>
+                <a href="../notes.html">Notes</a>
+            </li>
+            <li>
+                <a href="../code.html">Codes</a>
+            </li>
+        </ul>
+    </div>
+<div>
+        <h3>The following web pages are taken from <a href="https://developer.mozilla.org/en-US/"> MDN Web Docs</a></h3>
+        <ul>
+            <li><a href="../week10/MDN_Validating_Forms/index.html">View Notes from MDN: Validating forms </a></li>
+            <li><a href="../week10/MDN_Using_Fetch/index.html">View Notes from MDN: Using Fetch </a></li>
+        </ul>
+    </div>
+
+
+<div>
+        <h3>What is the fetch API?</h3>
+        <p>he Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network.</p>
+
+        <p>This kind of functionality was previously achieved using XMLHttpRequest. Fetch provides a better alternative that can be easily used by other technologies such as Service Workers. Fetch also provides a single logical place to define other HTTP-related concepts such as CORS and extensions to HTTP.</p>
+        <p>
+            <h2>The fetch specification differs from jQuery.ajax() in three main ways:</h2>
+            <li>The Promise returned from fetch() won’t reject on HTTP error status even if the response is an HTTP 404 or 500. Instead, it will resolve normally (with ok status set to false), and it will only reject on network failure or if anything prevented the request from completing.</li>
+            <li>fetch() won't can receive cross-site cookies; you can’t can establish a cross site session using fetch. Set-Cookie headers from other sites are silently ignored.</li>
+            <li>fetch won’t send cookies, unless you set the credentials init option. (Since Aug 25, 2017. The spec changed the default credentials policy to same-origin. Firefox changed since 61.0b13.)</li>
+
+
+        </p>
+        <h2>A Basic Fetch Request</h2>
+        <p>
+            fetch('http://example.com/movies.json') <br>
+           .then(response => response.json()) <br>
+           .then(data => console.log(data)); <Br>
+        </p>
+        <p>The fetch() method can optionally accept a second parameter, an init object that allows you to control a number of different settings:</p>
+        <h3>Note that mode: "no-cors" only allows a limited set of headers in the request:</h3>
+        <li>Accept</li>
+        <li>Accept-Language</li>
+        <li>Content-Language</li>
+        <li>Content-Type with a value of application/x-www-form-urlencoded, multipart/form-data, or text/plain</li>
+    </div>
+
+<div>
+    <h2>Sending a request with credentials included</h2>
+    <p>To cause browsers to send a request with credentials included, even for a cross-origin call, add credentials: 'include' to the init object you pass to the fetch() method.</p>
+   
+<p>If you only want to send credentials if the request URL is on the same origin as the calling script, add credentials: 'same-origin'.</p>
+<p>To instead ensure browsers don’t include credentials in the request, use credentials: 'omit'.</p>
+
+    <div>
+    <h2>Uploading JSON data</h2>
+<p>Use fetch() to POST JSON-encoded data.</p>
+
+<p>const data = { username: 'example' };
+
+fetch('https://example.com/profile', {
+  method: 'POST', // or 'PUT'
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Success:', data);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});</p>
+
+
+  <h2>Uploading a file</h2>
+<p>Files can be uploaded using an HTML input type="file"  input element, FormData() and fetch().</p>
+
+  <h2>Uploading multiple files</h2>
+<p>Files can be uploaded using an HTML input type="file" multiple input element, FormData() and fetch().</p>
+
+  <h2>Processing a text file line by line</h2>
+<p>The chunks that are read from a response are not broken neatly at line boundaries and are Uint8Arrays, not strings. If you want to fetch a text file and process it line by line, it is up to you to handle these complications. The following example shows one way to do this by creating a line iterator (for simplicity, it assumes the text is UTF-8, and doesn't handle fetch errors).</p>
+ <h2>Checking that the fetch was successful</h2>
+<p>A fetch() promise will reject with a TypeError when a network error is encountered or CORS is misconfigured on the server-side, although this usually means permission issues or similar — a 404 does not constitute a network error, for example. An accurate check for a successful fetch() would include checking that the promise resolved, then checking that the Response.ok property has a value of true.</p>
+
+<h2>Supplying your own request object</h2>
+<p>Instead of passing a path to the resource you want to request into the fetch() call, you can create a request object using the Request() constructor, and pass that in as a fetch() method argument. Request() accepts exactly the same parameters as the fetch() method. You can even pass in an existing request object to create a copy of it. This is pretty useful, as request and response bodies are one use only. Making a copy like this allows you to make use of the request/response again while varying the init options if desired. The copy must be made before the body is read, and reading the body in the copy will also mark it as read in the original request.</p>
+
+<h2>Headers</h2>
+<p>The Headers interface allows you to create your own headers object via the Headers() constructor. A headers object is a simple multi-map of names to values. </p>
+<p>The same can be achieved by passing an array of arrays or an object literal to the constructor. The contents can be queried and retrieved. Some of these operations are only useful in ServiceWorkers, but they provide a much nicer API for manipulating headers.
+
+All of the Headers methods throw a TypeError if a header name is used that is not a valid HTTP Header name. The mutation operations will throw a TypeError if there is an immutable guard (see below). Otherwise, they fail silently.A good use case for headers is checking whether the content type is correct before you process it further. </p>
+
+<h2>Guard</h2>
+<p>Since headers can be sent in requests and received in responses, and have various limitations about what information can and should be mutable, headers objects have a guard property. This is not exposed to the Web, but it affects which mutation operations are allowed on the headers object.</p>
+
+<h3>Possible guard values are:</h3>
+<li>none: default.</li>
+<li>request: guard for a headers object obtained from a request (Request.headers).</li>
+<li>request-no-cors: guard for a headers object obtained from a request created with Request.mode no-cors.</li>
+<li>response: guard for a Headers obtained from a response (Response.headers).</li>
+<li>immutable: Mostly used for ServiceWorkers; renders a headers object read-only.</li>
+
+<h3>Response objects</h3>
+<p>As you have seen above, Response instances are returned when fetch() promises are resolved. <br>
+
+The most common response properties you'll use are:</p>
+
+<li>Response.status — An integer (default value 200) containing the response status code.</li>
+<li>Response.statusText — A string (default value ""), which corresponds to the HTTP status code message. Note that HTTP/2 does not support status messages. </li>
+<li>Response.ok — seen in use above, this is a shorthand for checking that status is in the range 200-299 inclusive. This returns a Boolean.</li>
+<p>They can also be created programmatically via JavaScript, but this is only really useful in ServiceWorkers, when you are providing a custom response to a received request using a respondWith() method. The Response() constructor takes two optional arguments — a body for the response, and an init object (similar to the one that Request() accepts.)</p>
+
+<h2>Body</h2>
+<p>Both requests and responses may contain body data. A body is an instance of any of the following types: </p>
+<li>ArrayBuffer</li>
+<li>ArrayBufferView (Uint8Array and friends)</li>
+<li>Blob/File</li>
+<li>string</li>
+<li>URLSearchParams</li>
+<li>FormData</li>
+
+<p>The Body mixin defines the following methods to extract a body (implemented by both Request and Response). These all return a promise that is eventually resolved with the actual content.</p>
+
+<li>arrayBuffer()</li>
+<li>blob()</li>
+<li>json()</li>
+<li>text()</li>
+<li>formData()</li>
+
+<p>Both request and response (and by extension the fetch() function), will try to intelligently determine the content type. A request will also automatically set a Content-Type header if none is set in the dictionary</p>
+
+<h2>Feature detection</h2>
+
+<p>Fetch API support can be detected by checking for the existence of Headers, Request, Response or fetch() on the Window or Worker scope. </p>
+    <footer>
+    
+    <br>
+    <br>
+    <li>Return to Notes Main Page: <a href="../notes.html">Click Here</a></li>
+    
+</footer>
+</body>
+</html>
