@@ -524,7 +524,7 @@ div.superman input {
   animation : fadein 0.7s, fadeout 0.7s 3s;
 }
 
-/* ..........Main CSS for favourites.html.......... */
+/* ..........Main CSS for favorites.html.......... */
 
 #fav-card {
   display        : flex;

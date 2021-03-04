@@ -1,4 +1,4 @@
-/get array containing IDs of all superheroes which were addded to Favourites
+//get array containing IDs of all superheroes which were addded to Favourites
 var favList = JSON.parse(localStorage.getItem("favList"));
 if (favList == null)
     favList = [];
@@ -7,9 +7,9 @@ if (favList == null)
 const snackbar = document.getElementById('snackbar');
 const favCard = document.getElementById('fav-card');
 
-//For empty Favourites List
+//For empty Favorites List
 if (favList.length === 0)
-    favCard.innerHTML = '<div style="margin: 10%; text-align: center; color: white;">Error! Favourites List Empty.<div>'
+    favCard.innerHTML = '<div style="margin: 10%; text-align: center; color: white;">Error! Favorites List Empty.<div>'
 
 //Rendering Superhero Cards using id's from localStorage
 for (let id of favList) {
@@ -46,9 +46,9 @@ function createCard(data, id) {
     favCard.appendChild(card);
 }
 
-//Handle remove Superheroes from favourites
+//Handle remove Superheroes from Fvorites
 favCard.onclick = function (event) {
-    //Check click type? Favourites button or Details button    
+    //Check click type? Favorites button or Details button    
     var target = event.target;
     console.log("target", target)
     //If 'Know Me' button is clicked.
@@ -58,26 +58,26 @@ favCard.onclick = function (event) {
         window.open("details.html?id=" + id, "_self");
     }
 
-    //If 'Favourites Button' is clicked.
+    //If 'Favorites Button' is clicked.
     if (target.id === 'fav-icon') {
         target.parentNode.parentNode.remove();
         showSnackbar();
-        //Remove from Favourites List
+        //Remove from Favorites List
         var i = favList.indexOf(id);
         favList.splice(i, 1);
     }
-    //Updating localStorage with new List of Favourites
+    //Updating localStorage with new List of Favorites
     localStorage.setItem("favList", JSON.stringify(favList));
 
     //Checking if list is empty!
     if (favList.length === 0)
-        favCard.innerHTML = '<div style="margin: 10%; text-align: center; color: white;">Error! Favourites List Empty.<div>'
+        favCard.innerHTML = '<div style="margin: 10%; text-align: center; color: white;">Error! Favorites List Empty.<div>'
 }
 
 //Function to pop-up snackbar
 function showSnackbar() {
     snackbar.classList.add('visible');
-    snackbar.innerHTML = "Removed from Favourites";
+    snackbar.innerHTML = "Removed from Favorites";
 
     //Snackbar Timeout
     setTimeout(function () { snackbar.classList.remove("visible"); }, 3000);
