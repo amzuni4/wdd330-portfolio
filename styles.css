@@ -1,0 +1,167 @@
+/* Fonts Used */
+@import url('https://fonts.googleapis.com/css?family=Bangers');
+
+@import url('https://fonts.googleapis.com/css?family=Krub:400,700');
+
+/* ....Navigation Bar....... */
+
+header {
+  width           : 100%;
+  height          : 60px;
+  background-color: #131349;
+  z-index         : 20;
+  position        : fixed;
+  justify-content : space-between;
+  top             : 0;
+  display         : flex;
+  box-shadow      : 2px 3px 12px rgba(0, 0, 0, .4);
+  align-items     : center;
+}
+
+main {
+  overflow-y: scroll;
+}
+
+a {
+  text-decoration: none;
+  color:white;
+}
+
+p{
+  color:white;
+  text-align: center;
+}
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+}
+
+/* mouse over link */
+a:hover {
+  color: red;
+}
+
+/* selected link */
+a:active {
+  color: lightyellow;
+}
+
+
+#logo {
+  margin-left: 15px;
+}
+
+#logo-text {
+  color: lightgray;
+}
+
+.nav-right {
+  display: flex;
+}
+
+.nav-right a {
+  color: lightgrey;
+}
+
+.nav-right a:hover {
+  display: flex;
+  color  : white;
+}
+
+.nav-right div {
+  margin     : 0 20px;
+  font-size  : 1.2rem;
+  font-weight: 700;
+}
+
+.nav-left {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+}
+
+.nav-left h4 {
+  display: inline;
+}
+
+
+
+body {
+  font-family: 'Krub', sans-serif;
+  font-weight: thin;
+  background : white;
+  margin     : 0px;
+  overflow-x : hidden;
+}
+
+h1,
+h2 {
+  color      : white;
+  font-size  : 2em;
+  font-weight: normal;
+  font-family: 'Bangers', cursive !important;
+  text-align: center;
+}
+
+h3{
+  color:white;
+  font-size: .5em;
+  text-align: center;
+}
+body:after {
+  content               : "";
+  display               : block;
+  position              : fixed;
+  top                   : 0;
+  left                  : 0;
+  margin                : 0;
+  z-index               : -1;
+  width                 : 100%;
+  height                : 100%;
+  background            : url('./assets/bg-1.png');
+  background-size       : contain;
+  /* background-position: 600px -200px; */
+
+  filter: blur(0px);
+}
+
+
+
+/* ................Media Queries.......... */
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: 120%;
+
+  }
+
+ 
+
+  .watch {
+    margin: 5% auto;
+  }
+}
+ul {
+  line-height: 45px;
+  text-align: center;
+  list-style-type:none; 
+}
+
+li{
+  color:white;
+}
+
+/* ..........Main CSS for index.html............. */
+
+::-webkit-input-placeholder {
+  color: rgba(170, 169, 169, 0.856);
+}
+
+::-moz-placeholder {
+  text-align: center;
+}
